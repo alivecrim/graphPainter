@@ -43,16 +43,8 @@ public class MainSceneController implements Initializable {
         this.state = state;
     }
 
-    public void setSelectedObject(Rectangle selectedObject) {
-        this.selectedObject = selectedObject;
-    }
-
     public List<Device> getRegistry() {
         return registry;
-    }
-
-    public void setRegistry(List<Device> registry) {
-        this.registry = registry;
     }
 
     public void canvasClick(MouseEvent mouseEvent) {
