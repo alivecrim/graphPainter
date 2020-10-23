@@ -21,7 +21,7 @@ public class CanvasStateInsertDevice extends CanvasState {
         selectedObject.setLayoutY(y);
         ((Rectangle) selectedObject).setWidth(60);
         ((Rectangle) selectedObject).setHeight(30);
-        ((Rectangle) selectedObject).setFill(Paint.valueOf("red"));
+        ((Rectangle) selectedObject).setFill(Paint.valueOf("gold"));
         controller.getRegistry().add(new Device(x, y, 60,30));
         controller.setState(new CanvasStateStandby(controller));
     }

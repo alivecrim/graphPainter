@@ -13,6 +13,7 @@ public class CanvasStateStandby extends CanvasState {
 
     @Override
     public void click(double x, double y) {
+        this.controller.getRegistry().stream().map();
 
     }
 }
