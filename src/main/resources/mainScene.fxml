@@ -1,52 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.layout.FlowPane?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.shape.Ellipse?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.shape.QuadCurve?>
+<?import javafx.scene.shape.Rectangle?>
 
-<VBox prefHeight="600.0" prefWidth="900.0" spacing="10.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.alivecrim.MainSceneController">
-   <opaqueInsets>
-      <Insets />
-   </opaqueInsets>
-   <padding>
-      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-   </padding>
-   <children>
-      <FlowPane columnHalignment="CENTER" hgap="10.0" style="-fx-background-color: A8A7A8;" vgap="5.0">
-         <children>
-            <Button fx:id="button" contentDisplay="CENTER" mnemonicParsing="false" onAction="#bclick1" style="-fx-background-color: #363636; -fx-border-color: #cc527a;" text="add device" textFill="#ee048d">
-               <padding>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </padding>
-               <font>
-                  <Font name="Ubuntu Mono" size="14.0" />
-               </font>
-               <opaqueInsets>
-                  <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
-               </opaqueInsets>
-            </Button>
-            <Button fx:id="button1" mnemonicParsing="false" onAction="#addLine" style="-fx-background-color: #363636; -fx-border-color: #cc527a;" text="add line">
-               <padding>
-                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-               </padding>
-            </Button>
-            <Button fx:id="printRegistry" mnemonicParsing="false" onAction="#print" style="-fx-background-color: #363636; -fx-border-color: #cc527a;" text="print registry" />
-         </children>
-         <VBox.margin>
-            <Insets bottom="3.0" left="3.0" right="3.0" top="3.0" />
-         </VBox.margin>
-         <padding>
-            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
-         </padding>
-      </FlowPane>
-      <ScrollPane>
-         <content>
-            <Pane fx:id="canvasPane" onMouseClicked="#canvasClick" prefHeight="9000.0" prefWidth="9000.0" style="-fx-background-color: white;" />
-         </content>
-      </ScrollPane>
-   </children>
-</VBox>
+<SplitPane dividerPositions="0.05" prefHeight="726.0" prefWidth="993.0" xmlns="http://javafx.com/javafx/11.0.1"
+           xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.alivecrim.DrawCanvasController">
+   <VBox>
+      <Group fx:id="deviceGroup">
+         <Rectangle arcWidth="5.0" fill="#7f8a94" height="40.0" onMouseClicked="#selectDeviceAction"
+                    stroke="BLACK" strokeType="INSIDE" width="100.0"/>
+         <Ellipse fill="#ff21df8c" layoutY="20.0" radiusX="5.0" radiusY="5.0" stroke="BLACK" strokeType="INSIDE"/>
+         <Ellipse fill="#ff21dfb5" layoutX="100.0" layoutY="20.0" radiusX="5.0" radiusY="5.0" stroke="BLACK"
+                  strokeType="INSIDE"/>
+         <Label layoutX="1.0" layoutY="-20.0" text="Device #1"/>
+      </Group>
+      <Group fx:id="switchCGroup">
+         <Ellipse fill="WHITE" onMouseClicked="#selectCSwitchAction" radiusX="30.0" radiusY="30.0" stroke="BLACK"
+                  strokeType="INSIDE"/>
+         <QuadCurve controlX="-60.0" endX="-60.0" endY="-30.0" fill="#1f93ff00" layoutX="60.0" startX="-30.0"
+                    stroke="BLACK" strokeType="INSIDE"/>
+         <QuadCurve controlX="-30.0" controlY="-30.0" endX="-60.0" endY="-30.0" fill="#1f93ff00" layoutX="30.0"
+                    layoutY="30.0" startX="-30.0" stroke="BLACK" strokeType="INSIDE"/>
+         <Ellipse fill="#ff21dfb5" layoutX="30.0" radiusX="5.0" radiusY="5.0" stroke="BLACK" strokeType="INSIDE"/>
+         <Ellipse fill="#ff21dfb5" layoutY="-30.0" radiusX="5.0" radiusY="5.0" stroke="BLACK"
+                  strokeType="INSIDE"/>
+         <Ellipse fill="#ff21dfb5" layoutX="-30.0" radiusX="5.0" radiusY="5.0" stroke="BLACK"
+                  strokeType="INSIDE"/>
+         <Ellipse fill="#ff21dfb5" layoutY="30.0" radiusX="5.0" radiusY="5.0" stroke="BLACK" strokeType="INSIDE"/>
+         <Label layoutX="-50.0" layoutY="-55.0" text="C-switch"/>
+      </Group>
+      <Group fx:id="switchTGroup">
+         <Ellipse fill="WHITE" onMouseClicked="#selectTSwitchAction" radiusX="30.0" radiusY="30.0" stroke="BLACK"
+                  strokeType="INSIDE"/>
+         <QuadCurve controlX="-60.0" endX="-60.0" endY="-30.0" fill="#1f93ff00" layoutX="60.0" startX="-30.0"
+                    stroke="BLACK" strokeType="INSIDE"/>
+         <QuadCurve controlX="-30.0" controlY="-30.0" endX="-60.0" endY="-30.0" fill="#1f93ff00" layoutX="30.0"
+                    layoutY="30.0" startX="-30.0" stroke="BLACK" strokeType="INSIDE"/>
+         <Ellipse fill="#ff21dfb5" layoutX="30.0" radiusX="5.0" radiusY="5.0" stroke="BLACK" strokeType="INSIDE"/>
+         <Ellipse fill="#ff21dfb5" layoutY="-30.0" radiusX="5.0" radiusY="5.0" stroke="BLACK"
+                  strokeType="INSIDE"/>
+         <Ellipse fill="#ff21dfb5" layoutX="-30.0" radiusX="5.0" radiusY="5.0" stroke="BLACK"
+                  strokeType="INSIDE"/>
+         <Ellipse fill="#ff21dfb5" layoutY="30.0" radiusX="5.0" radiusY="5.0" stroke="BLACK" strokeType="INSIDE"/>
+         <Line endY="30.0" rotate="-135.0" startY="-30.0"/>
+         <Line endY="30.0" rotate="-45.0" startY="-30.0"/>
+         <Label layoutX="-50.0" layoutY="-55.0" text="T-switch"/>
+      </Group>
+      <Group fx:id="switchRGroup">
+         <Rectangle arcHeight="5.0" arcWidth="5.0" fill="WHITE" height="60.0" layoutX="-30.0" layoutY="-30.0"
+                    onMouseClicked="#selectRSwitchAction" stroke="BLACK" strokeType="INSIDE" width="60.0"/>
+         <QuadCurve controlX="-60.0" endX="-85.0" endY="-30.0" fill="#1f93ff00" layoutX="60.0" startX="-35.0"
+                    startY="-30.0" stroke="BLACK" strokeType="INSIDE"/>
+         <QuadCurve controlX="-30.0" controlY="-30.0" endX="-55.0" fill="#1f93ff00" layoutX="30.0" layoutY="30.0"
+                    startX="-5.0" stroke="BLACK" strokeType="INSIDE"/>
+         <Ellipse fill="#ff21dfb5" layoutX="30.0" radiusX="5.0" radiusY="5.0" stroke="BLACK" strokeType="INSIDE"/>
+         <Ellipse fill="#ff21dfb5" layoutY="-30.0" radiusX="5.0" radiusY="5.0" stroke="BLACK"
+                  strokeType="INSIDE"/>
+         <Ellipse fill="#ff21dfb5" layoutX="-30.0" radiusX="5.0" radiusY="5.0" stroke="BLACK"
+                  strokeType="INSIDE"/>
+         <Ellipse fill="#ff21dfb5" layoutY="30.0" radiusX="5.0" radiusY="5.0" stroke="BLACK" strokeType="INSIDE"/>
+         <Line endX="30.0" startX="-30.0"/>
+         <Label layoutX="-50.0" layoutY="-55.0" text="R-switch"/>
+      </Group>
+   </VBox>
+   <AnchorPane prefHeight="200.0" prefWidth="200.0"/>
+</SplitPane>
