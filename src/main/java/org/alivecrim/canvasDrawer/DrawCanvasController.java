@@ -3,11 +3,12 @@ package org.alivecrim.canvasDrawer;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
+import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import org.alivecrim.canvasDrawer.states.DrawCanvasState;
 import org.alivecrim.canvasDrawer.states.DrawCanvasStateStandby;
-import org.alivecrim.canvasDrawer.states.SelectCSwitchState;
+import org.alivecrim.canvasDrawer.states.SelectDeviceState;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -18,9 +19,11 @@ import java.util.ResourceBundle;
 
 public class DrawCanvasController implements Initializable {
     public static Logger logger = LoggerFactory.getLogger(DrawCanvasController.class);
-    public AnchorPane canvasPane;
     @FXML
-    private Group deviceGroup;
+    public AnchorPane canvasPane;
+
+    @FXML
+    public Button selectDeviceButton;
 
     @FXML
     private Group switchCGroup;
@@ -30,19 +33,16 @@ public class DrawCanvasController implements Initializable {
 
     @FXML
     private Group switchRGroup;
+
     private DrawCanvasState state;
     private List<Device> registry;
 
-    @FXML
-    void selectCSwitchAction(MouseEvent event) {
-        setState(new SelectCSwitchState(this));
-    }
 
     public DrawCanvasController() {
         setState(new DrawCanvasStateStandby(this));
     }
 
-    private void setState(DrawCanvasState state) {
+    public void setState(DrawCanvasState state) {
         logger.info(String.format("Change state from %s to %s", this.state, state));
         this.state = state;
     }
@@ -60,9 +60,10 @@ public class DrawCanvasController implements Initializable {
     }
 
     @FXML
-    void selectDeviceAction(MouseEvent event) {
-
+    void selectDeviceGroup(MouseEvent event) {
+        setState(new SelectDeviceState(this));
     }
+
 
     @FXML
     void selectRSwitchAction(MouseEvent event) {
@@ -72,6 +73,10 @@ public class DrawCanvasController implements Initializable {
     @FXML
     void selectTSwitchAction(MouseEvent event) {
 
+    }
+
+    @FXML
+    public void selectCSwitchAction(MouseEvent mouseEvent) {
     }
 
     public void canvasClick(MouseEvent mouseEvent) {
@@ -90,4 +95,5 @@ public class DrawCanvasController implements Initializable {
     public void clear(MouseEvent mouseEvent) {
         this.canvasPane.getChildren().clear();
     }
+
 }

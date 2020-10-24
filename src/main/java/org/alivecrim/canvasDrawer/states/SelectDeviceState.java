@@ -3,11 +3,12 @@ package org.alivecrim.canvasDrawer.states;
 import javafx.scene.Group;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.paint.Paint;
 import org.alivecrim.canvasDrawer.Device;
 import org.alivecrim.canvasDrawer.DrawCanvasController;
 
-public class SelectCSwitchState extends DrawCanvasState {
-    public SelectCSwitchState(DrawCanvasController drawCanvasController) {
+public class SelectDeviceState extends DrawCanvasState {
+    public SelectDeviceState(DrawCanvasController drawCanvasController) {
         super(drawCanvasController);
     }
 
@@ -19,5 +20,18 @@ public class SelectCSwitchState extends DrawCanvasState {
         AnchorPane.setLeftAnchor(shape,mouseEvent.getX());
         AnchorPane.setTopAnchor(shape,mouseEvent.getY());
         getController().canvasPane.getChildren().add(shape);
+        getController().setState(new DrawCanvasStateStandby(getController()));
+        revertState();
     }
+
+    @Override
+    public void initState() {
+        getController().selectDeviceButton.setTextFill(Paint.valueOf("GREEN"));
+    }
+
+    @Override
+    public void revertState() {
+        getController().selectDeviceButton.setTextFill(Paint.valueOf("BLACK"));
+    }
+
 }

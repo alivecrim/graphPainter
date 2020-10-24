@@ -19,7 +19,11 @@ public abstract class DrawCanvasState {
 
     public DrawCanvasState(DrawCanvasController drawCanvasController) {
         this.controller = drawCanvasController;
+        initState();
     }
 
     public abstract void canvasClick(MouseEvent mouseEvent);
+
+    public abstract void initState();
+    public abstract void revertState();
 }

@@ -7,13 +7,6 @@ import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.StrokeType;
 
-
-//<Group fx:id="deviceGroup">
-//<Rectangle arcWidth="5.0" fill="#7f8a94" height="40.0" onMouseClicked="#selectDeviceAction" stroke="BLACK" strokeType="INSIDE" width="100.0" />
-//<Ellipse fill="#ff21df8c" layoutY="20.0" radiusX="5.0" radiusY="5.0" stroke="BLACK" strokeType="INSIDE" />
-//<Ellipse fill="#ff21dfb5" layoutX="100.0" layoutY="20.0" radiusX="5.0" radiusY="5.0" stroke="BLACK" strokeType="INSIDE" />
-//<Label layoutX="1.0" layoutY="-20.0" text="Device #1" />
-//</Group>
 public class Device {
     private double x;
     private double y;
@@ -25,6 +18,14 @@ public class Device {
         this.x = x;
         this.y = y;
         initShape();
+    }
+
+    public double getX() {
+        return x;
+    }
+
+    public double getY() {
+        return y;
     }
 
     private void initShape() {
