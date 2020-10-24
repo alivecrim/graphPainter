@@ -10,6 +10,7 @@ public class DrawCanvasStateStandby extends org.alivecrim.canvasDrawer.states.Dr
 
     @Override
     public void canvasClick(MouseEvent mouseEvent) {
+
     }
 
     @Override

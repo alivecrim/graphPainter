@@ -20,8 +20,8 @@ public class SelectDeviceState extends DrawCanvasState {
         AnchorPane.setLeftAnchor(shape,mouseEvent.getX());
         AnchorPane.setTopAnchor(shape,mouseEvent.getY());
         getController().canvasPane.getChildren().add(shape);
-        getController().setState(new DrawCanvasStateStandby(getController()));
         revertState();
+
     }
 
     @Override
@@ -32,6 +32,7 @@ public class SelectDeviceState extends DrawCanvasState {
     @Override
     public void revertState() {
         getController().selectDeviceButton.setTextFill(Paint.valueOf("BLACK"));
+        getController().setState(new DrawCanvasStateStandby(getController()));
     }
 
 }
