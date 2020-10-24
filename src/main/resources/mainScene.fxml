@@ -58,6 +58,6 @@
       </padding>
    </VBox>
    <ScrollPane>
-      <AnchorPane fx:id="canvasPane" onMouseClicked="#canvasClick" prefHeight="12000.0" prefWidth="12000.0" />
+      <AnchorPane fx:id="canvasPane" onDragDetected="#canvasDragDetected" onMouseClicked="#canvasClick" prefHeight="12000.0" prefWidth="12000.0" />
    </ScrollPane>
 </SplitPane>

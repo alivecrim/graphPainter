@@ -5,6 +5,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.Group;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
+import javafx.scene.input.DragEvent;
+import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import org.alivecrim.canvasDrawer.states.DrawCanvasSelectNodeState;
@@ -95,4 +97,10 @@ public class DrawCanvasController implements Initializable {
     public Parent getSelectedNode() {
         return selectedNode;
     }
+
+    public void canvasDragDetected(MouseEvent mouseEvent) {
+        System.out.println("canvasDragDetected");
+        System.out.println(mouseEvent);
+    }
+
 }

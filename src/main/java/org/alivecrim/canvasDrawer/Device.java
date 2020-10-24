@@ -1,11 +1,19 @@
 package org.alivecrim.canvasDrawer;
 
+import javafx.event.Event;
+import javafx.event.EventHandler;
+import javafx.event.EventType;
 import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.control.Label;
+import javafx.scene.input.DragEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Paint;
 import javafx.scene.shape.Ellipse;
 import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.StrokeType;
+
+import java.awt.event.MouseAdapter;
 
 public class Device {
     private double x;
@@ -37,8 +45,8 @@ public class Device {
         rectangle.setStroke(Paint.valueOf("black"));
         rectangle.setStrokeType(StrokeType.valueOf("INSIDE"));
         Label label = new Label(this.name);
-        label.setLayoutX(-10.0);
-        label.setLayoutY(-40.0);
+        label.setLayoutX(0);
+        label.setLayoutY(-20.0);
         Ellipse inPort = new Ellipse();
         Ellipse outPort = new Ellipse();
         inPort.setFill(Paint.valueOf("#ff21df8c"));
@@ -56,6 +64,8 @@ public class Device {
         outPort.setStroke(Paint.valueOf("black"));
         outPort.setStrokeType(StrokeType.valueOf("INSIDE"));
         schemeShape = new Group(rectangle, label, inPort, outPort);
+
+        schemeShape.addEventHandler(MouseEvent.MOUSE_DRAGGED, event -> System.out.println(event));
     }
 
     public Group getShape() {
@@ -70,5 +80,13 @@ public class Device {
                 ", schemeShape=" + schemeShape +
                 ", name='" + name + '\'' +
                 '}';
+    }
+
+    public void setX(double x) {
+        this.x = x;
+    }
+
+    public void setY(double y) {
+        this.y = y;
     }
 }

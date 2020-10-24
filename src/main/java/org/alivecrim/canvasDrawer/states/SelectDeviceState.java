@@ -17,8 +17,8 @@ public class SelectDeviceState extends DrawCanvasState {
         Device v = new Device(mouseEvent.getX(), mouseEvent.getY(), "V");
         Group shape = v.getShape();
         getController().getRegistry().add(v);
-        AnchorPane.setLeftAnchor(shape,mouseEvent.getX());
-        AnchorPane.setTopAnchor(shape,mouseEvent.getY());
+        AnchorPane.setLeftAnchor(shape,mouseEvent.getX()-shape.getLayoutBounds().getCenterX());
+        AnchorPane.setTopAnchor(shape,mouseEvent.getY()-shape.getLayoutBounds().getMaxY());
         getController().canvasPane.getChildren().add(shape);
         revertState();
 
