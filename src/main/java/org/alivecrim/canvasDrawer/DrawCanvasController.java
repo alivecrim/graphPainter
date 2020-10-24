@@ -64,7 +64,6 @@ public class DrawCanvasController implements Initializable {
         setState(new SelectDeviceState(this));
     }
 
-
     @FXML
     void selectRSwitchAction(MouseEvent event) {
 
