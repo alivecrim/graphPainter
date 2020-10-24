@@ -1,4 +1,4 @@
-package org.alivecrim;
+package org.alivecrim.canvasDrawer;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
