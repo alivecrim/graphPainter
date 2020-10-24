@@ -34,7 +34,7 @@ public class Device {
         rectangle.setHeight(40.0);
         rectangle.setWidth(100.0);
         rectangle.setStroke(Paint.valueOf("black"));
-        rectangle.setStrokeType(StrokeType.valueOf("inside"));
+        rectangle.setStrokeType(StrokeType.valueOf("INSIDE"));
         Label label = new Label(this.name);
         Ellipse inPort = new Ellipse();
         Ellipse outPort = new Ellipse();
@@ -49,9 +49,13 @@ public class Device {
         outPort.setRadiusX(5.0);
         outPort.setRadiusY(5.0);
         inPort.setStroke(Paint.valueOf("black"));
-        inPort.setStrokeType(StrokeType.valueOf("inside"));
+        inPort.setStrokeType(StrokeType.valueOf("INSIDE"));
         outPort.setStroke(Paint.valueOf("black"));
-        outPort.setStrokeType(StrokeType.valueOf("inside"));
+        outPort.setStrokeType(StrokeType.valueOf("INSIDE"));
         schemeShape = new Group(rectangle, label, inPort, outPort);
+    }
+
+    public Group getShape() {
+        return schemeShape;
     }
 }

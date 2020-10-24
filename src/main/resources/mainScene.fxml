@@ -11,6 +11,7 @@
 <?import javafx.scene.shape.QuadCurve?>
 <?import javafx.scene.shape.Rectangle?>
 
+<?import javafx.scene.control.Button?>
 <SplitPane dividerPositions="0.05" prefHeight="726.0" prefWidth="993.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.alivecrim.canvasDrawer.DrawCanvasController">
    <VBox>
       <Group fx:id="deviceGroup">
@@ -52,6 +53,7 @@
          <Line endX="30.0" startX="-30.0" />
          <Label layoutX="-50.0" layoutY="-55.0" text="R-switch" />
       </Group>
+      <Button onMouseClicked="#clear">Clear</Button>
    </VBox>
    <ScrollPane>
       <AnchorPane fx:id="canvasPane" onMouseClicked="#canvasClick" prefHeight="12000.0" prefWidth="12000.0"/>

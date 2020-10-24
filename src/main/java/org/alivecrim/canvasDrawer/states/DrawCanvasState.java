@@ -5,7 +5,6 @@ import org.alivecrim.canvasDrawer.DrawCanvasController;
 
 public abstract class DrawCanvasState {
     private final DrawCanvasController controller;
-    private final MouseEvent event;
 
     @Override
     public String toString() {
@@ -18,14 +17,9 @@ public abstract class DrawCanvasState {
         return controller;
     }
 
-    public MouseEvent getEvent() {
-        return event;
-    }
-
-    public DrawCanvasState(DrawCanvasController drawCanvasController, MouseEvent event) {
+    public DrawCanvasState(DrawCanvasController drawCanvasController) {
         this.controller = drawCanvasController;
-        this.event = event;
     }
 
-    public abstract void canvasClick();
+    public abstract void canvasClick(MouseEvent mouseEvent);
 }
