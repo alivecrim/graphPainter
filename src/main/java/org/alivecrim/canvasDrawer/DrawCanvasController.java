@@ -3,9 +3,11 @@ package org.alivecrim.canvasDrawer;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Group;
+import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import org.alivecrim.canvasDrawer.states.DrawCanvasSelectNodeState;
 import org.alivecrim.canvasDrawer.states.DrawCanvasState;
 import org.alivecrim.canvasDrawer.states.DrawCanvasStateStandby;
 import org.alivecrim.canvasDrawer.states.SelectDeviceState;
@@ -36,6 +38,7 @@ public class DrawCanvasController implements Initializable {
 
     private DrawCanvasState state;
     private List<Device> registry;
+    private Parent selectedNode;
 
 
     public DrawCanvasController() {
@@ -47,21 +50,13 @@ public class DrawCanvasController implements Initializable {
         this.state = state;
     }
 
-    public Group getSwitchCGroup() {
-        return switchCGroup;
-    }
-
-    public Group getSwitchTGroup() {
-        return switchTGroup;
-    }
-
-    public Group getSwitchRGroup() {
-        return switchRGroup;
+    @FXML
+    void clickSelectDevice(MouseEvent event) {
+        setState(new SelectDeviceState(this));
     }
 
     @FXML
-    void selectDeviceGroup(MouseEvent event) {
-        setState(new SelectDeviceState(this));
+    public void selectCSwitchAction(MouseEvent mouseEvent) {
     }
 
     @FXML
@@ -74,9 +69,6 @@ public class DrawCanvasController implements Initializable {
 
     }
 
-    @FXML
-    public void selectCSwitchAction(MouseEvent mouseEvent) {
-    }
 
     public void canvasClick(MouseEvent mouseEvent) {
         this.state.canvasClick(mouseEvent);
@@ -95,4 +87,12 @@ public class DrawCanvasController implements Initializable {
         this.canvasPane.getChildren().clear();
     }
 
+    public void setSelectedNode(Parent parent) {
+        this.selectedNode = parent;
+        setState(new DrawCanvasSelectNodeState(this));
+    }
+
+    public Parent getSelectedNode() {
+        return selectedNode;
+    }
 }

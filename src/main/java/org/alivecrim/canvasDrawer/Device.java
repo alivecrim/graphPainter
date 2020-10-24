@@ -37,6 +37,8 @@ public class Device {
         rectangle.setStroke(Paint.valueOf("black"));
         rectangle.setStrokeType(StrokeType.valueOf("INSIDE"));
         Label label = new Label(this.name);
+        label.setLayoutX(-10.0);
+        label.setLayoutY(-40.0);
         Ellipse inPort = new Ellipse();
         Ellipse outPort = new Ellipse();
         inPort.setFill(Paint.valueOf("#ff21df8c"));
@@ -58,5 +60,15 @@ public class Device {
 
     public Group getShape() {
         return schemeShape;
+    }
+
+    @Override
+    public String toString() {
+        return "Device{" +
+                "x=" + x +
+                ", y=" + y +
+                ", schemeShape=" + schemeShape +
+                ", name='" + name + '\'' +
+                '}';
     }
 }
